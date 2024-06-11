@@ -10,10 +10,12 @@
 
 *** READ IN THE ORIGINAL EMBES DATASET
 
-cd "C:\Users\Andrej Cvetic\Desktop\PhD\2023_TT_Replication Paper\1_Datasets for Replication\01_Working Datasets"
+**cd "C:\Users\Andrej Cvetic\Desktop\PhD\2023_TT_Replication Paper\1_Datasets for Replication\01_Working Datasets"
+**use "british_election_study_ethnic_minority_survey_2010_data_anon", clear
 
+** Download the data from the following link and set the working directory:
+* https://github.com/AndrejCvetic/Replication_Material/blob/main/01_original_datasets/british_election_study_ethnic_minority_survey_2010_data_anon.dta
 
-use "british_election_study_ethnic_minority_survey_2010_data_anon", clear
 
 numlabel, add force
 
@@ -954,7 +956,7 @@ tab more_prejudice
 pwcorr better_worse more_prejudice
 * correlatred on -0.2 which is good, but still should be used as alternatives. 
 
-*** save the dataset
+*** save the dataset (in your cd)
 save "EMBES_REPLICATION_DATASET", replace
 
 
