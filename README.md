@@ -46,3 +46,229 @@ The **Causes and Consequences of Socio-Cultural Integration Processes among New 
 
 **Datafile**: `ZA5956_nl_wave1_v1-0-0.dta` (not provided)
 
+### Dataset list
+
+| Data file                                   | Source  | Notes                                                                                                    | Provided |
+|---------------------------------------------|---------|----------------------------------------------------------------------------------------------------------|----------|
+| [british\_election\_study\_ethnic\_minority\_survey\_2010\_data\_anon](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6970#!/access-data) | UK Data Service | Public | Yes |
+| [ZA5956\_uk\_wave1\_v1-0-0.dta](https://search.gesis.org/research_data/ZA5956)                          | GESIS   | Public                                                                                                   | No       |
+| [ZA5956\_nl\_wave1\_v1-0-0.dta](https://search.gesis.org/research_data/ZA5956)                          | GESIS   | Public                                                                                                   | No       |
+| EMBES\_REPLICATION\_DATASET.dta              | -       | [british\_election\_study\_ethnic\_minority\_survey\_2010\_data\_anon](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6970#!/access-data) after running EMBES\_original\_and\_additional variables.do | Yes      |
+| SCIP\_UK\_W1.dta                             | -       | ZA5956\_uk\_wave1\_v1-0-0.dta after running SCIP\_variables\_UK.do                                         | Yes      |
+| SCIP\_NL\_W1.dta                             | -       | ZA5956\_nl\_wave1\_v1-0-0.dta after running SCIP\_variables\_NL.do                                         | Yes      |
+
+
+### Computational requirements
+
+#### Software Requirements
+
+- **Stata**: Code was developed using Stata MP 17, but continued with Stata 18. The last version of code was run with Stata MP 18.
+  - No particular dependencies were installed for the data cleaning process; built-in functions of Stata 17 or 18 should be sufficient for running the script.
+
+- **R** 2.4.0 ("Vigorous Calisthenics")
+  - **Himsc** (5.1-1)
+  - **ggpubr** (0.6.6)
+  - **rlang** (1.1.2)
+  - **MNLpred** (0.0.8)
+  - **nnet** (7.3-17)
+  - **dplyr** (1.1.3)
+  - **tidyr** (1.1.3)
+  - **ggtext** (0.1.2)
+  - **cobalt** (4.5.5)
+  - **cowplot** (1.1.1)
+  - **patchwork** (1.2.0)
+  - **ggplotify** (0.1.2)
+  - **gridExtra** (2.3)
+  - **marginaleffects** (0.19.0)
+  - **ROSE** (0.0-4)
+  - **brglm2** (0.9.2)
+  - **ggplot2** (3.4.4)
+  - **MatchIt** (4.5.5)
+  - **cem** (1.1.31)
+  - **lattice** (0.22-5)
+  - **stargazer** (5.2.3)
+  - **psych** (2.3.9)
+  - **RColorBrewer** (1.1-3)
+  - **mgcv** (1.8-40)
+  - **nlme** (3.1-157)
+  - **tile** (0.4.17)
+  - **simcf** (0.2.20)
+  - **MASS** (7.3-56)
+  - **tictoc** (1.2.1)
+  - Each R script contains the set of packages necessary for executing the script. There is no need to load a separate script to load the necessary packages.
+
+#### Memory and Runtime Requirements
+
+##### Summary
+
+- [ ] <10 minutes
+- [x] 10-60 minutes
+- [ ] 1-2 hours
+- [ ] 2-8 hours
+- [ ] 8-24 hours
+- [ ] 1-3 days
+- [ ] 3-14 days
+- [ ] > 14 days
+- [ ] Not feasible to run on a desktop machine, as described below.
+
+##### Details
+
+The code was last run on a **Apple M2 MacBook Pro with MacOS Sonoma version 14.3.1**. Total availability of unified memory is 24GB, while Macintosh HD offers 494.38 GB of space.
+
+### Description of programs/code
+
+- Folder `03_data_cleaning_scripts` contains three scripts that are applied to raw datasets (files in `01_original_datasets`) to create datasets used in the analysis (files in `02_working_datasets`). Three `.do` files should be run separately on their own. Script `EMBES_original_and_additional variables.do` will create dataset `EMBES_REPLICATION_DATASET.dta` used in Study 1 and the first set of extensions in Study 2. Scripts `SCIP_variables_NL.do` and `SCIP_variables_UK.do` will create datasets `SCIP_NL_W1.dta` and `SCIP_UK_W1.dta` that are used in the second set of extensions in Study 2.
+
+- Folder `04_analysis_scripts` contains two scripts that are used to render all tables and figures in both the paper and appendix. Script `paper_output.r` contains necessary code to recreate all figures and tables presented in the paper. Script `appendix_output.r` contains necessary code to recreate all figures and tables presented in the appendix.
+
+### Instructions to Replicators
+
+- Download datasets from `01_original_datasets` to your computer.
+- Run scripts from `03_data_cleaning_scripts` and save created datasets on your computer. Alternatively, download already prepared files from `02_working_datasets`.
+- Download and run scripts from `04_analysis_scripts` on your computer, using appropriate datasets. Save results in the appropriate folder of your choice.
+
+#### Details
+
+- Output directories have not been set up in advance, therefore a replicator can decide how they wish to store the data, scripts, and the output.
+  
+- **03_data_cleaning_scripts**
+  - The order of running the scripts from `03_data_cleaning_scripts` is not important. However, they need to be run prior to either `paper_output.r` and `appendix_output.r`, unless the replicator wants to use already processed datasets from `02_working_datasets`.
+  - The script `EMBES_original_and_additional variables.do` was last run on 19/9/2024 and it took 4 min.
+  - The script `SCIP_variables_NL.do` was last run on 11/10/2024 and it took 3 min.
+  - The script `SCIP_variables_UK.do` was last run on 05/10/2024 and it took 3 min.
+  
+- **04_analysis_scripts**
+  - The order of running the scripts is not important.
+  - **paper_output.r**
+    - This script contains R packages `tile` and `simcf` which are not available on CRAN, but can be downloaded from [this link](https://faculty.washington.edu/cadolph/index.php?page=60). The instructions indicate that `.zip` archives should be downloaded and unpacked manually, while the packages should be installed as local source packages. These packages need to be installed prior to running the script.
+    - The script was last run on 27/6/2024 and it took 3.12 min to execute the code.
+  - **appendix_output.r**
+    - This script contains R packages `tile` and `simcf` which are not available on CRAN, but can be downloaded from [this link](https://faculty.washington.edu/cadolph/index.php?page=60). The instructions indicate that `.zip` archives should be downloaded and unpacked manually, while the packages should be installed as local source packages. These packages need to be installed prior to running the script.
+    - The script was last run on 27/6/2024 and it took 17.06 min to execute the code.
+
+- **05_output**
+  - This folder contains two subfolders:
+    - Folder `01_paper_appendix` contains formatted `Paper document.pdf` and `Appendix.pdf` documents.
+    - Folder `02_files` contains all files rendered from `paper_output.r` and `appendix_output.r`.
+
+### List of tables and programs
+
+The provided code reproduces:
+
+- [x] All numbers provided in text in the paper.
+- [x] All tables and figures in the paper.
+- [x] All tables and figures in the appendix.
+
+| Figure/Table \#     | Program                          | Line Number      | Output file    | Note                                                                                                                                               |
+|---------------------|----------------------------------|------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Figure 1            | 04_analysis/paper_output.r       | 116 and 124      | -              | Graphs need to be manually saved one by one, using `R Studio` options: `Plot` >> `Export` with `.pdf` as chosen option.                             |
+| Figure 2, panel (a) | 04_analysis/paper_output.r       | 420              | fig2_pa.pdf    | -                                                                                                                                                  |
+| Figure 2, panel (b) | 04_analysis/paper_output.r       | 742              | fig2_pb.pdf    | -                                                                                                                                                  |
+| Figure 3, panel (a) | 04_analysis/paper_output.r       | 956              | fig3_pa.pdf    | -                                                                                                                                                  |
+| Figure 3, panel (b) | 04_analysis/paper_output.r       | 1277             | fig3_pb.pdf    | -                                                                                                                                                  |
+| Table 1             | 04_analysis/paper_output.r       | 1576             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 2             | 04_analysis/paper_output.r       | 1802             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 3             | 04_analysis/paper_output.r       | 2055             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 4             | 04_analysis/paper_output.r       | 2279             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 5             | 04_analysis/paper_output.r       | 2536             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 6             | 04_analysis/paper_output.r       | 2760             | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Figure 4, panel (a) | 04_analysis/paper_output.r       | 2941             | fig4_pa.pdf    | -                                                                                                                                                  |
+| Figure 4, panel (b) | 04_analysis/paper_output.r       | 3138             | fig4_pb.pdf    | -                                                                                                                                                  |
+| Table 7             | 04_analysis/paper_output.r       | 3259 and 3364    | -              | `TeX` output in the form of two tables is available in `R Studio` console. Final table with all 4 models was assembled using `ChatGPT`              |
+| Figure 5, panel (a) | 04_analysis/paper_output.r       | 3414             | fig5_pa.pdf    | -                                                                                                                                                  |
+| Figure 5, panel (b) | 04_analysis/paper_output.r       | 3472             | fig5_pb.pdf    | -                                                                                                                                                  |
+| Table 1             | 04_analysis/appendix_output.r    | 100              | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Figure 1            | 04_analysis/appendix_output.r    | 115              | -              | Graph needs to be manually saved, using `R Studio` options: `Plot` >> `Export` with `.pdf` as chosen option.                                        |
+| Table 2             | 04_analysis/appendix_output.r    | 254              | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 3             | 04_analysis/appendix_output.r    | 381              | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 4             | 04_analysis/appendix_output.r    | 474              | -              | `TeX` output is available in `R Studio` console.                                                                                                    |
+| Table 5          | 04_analysis/appendix_otput.r             | 599            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 6          | 04_analysis/appendix_otput.r             | 658            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 7          | 04_analysis/appendix_otput.r             | 687            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 8          | 04_analysis/appendix_otput.r             | 741            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 9          | 04_analysis/appendix_otput.r             | 770            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 10         | 04_analysis/appendix_otput.r             | 826            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 11         | 04_analysis/appendix_otput.r             | 855            | -               | `TeX` output is available in `R Studio` console.      |
+| Table 12         | 04_analysis/appendix_otput.r             | 1286           | -               | `TeX` output is available in `R Studio` console.      |
+| Table 13         | 04_analysis/appendix_otput.r             | 1717           | -               | `TeX` output is available in `R Studio` console.      |
+| Table 14         | 04_analysis/appendix_otput.r             | 2127           | -               | `TeX` output is available in `R Studio` console.      |
+| Figure 2         | 04_analysis/appendix_otput.r             | 2204           | match_fig1.pdf  | -                                                 |
+| Figure 3         | 04_analysis/appendix_otput.r             | 2294           | match_fig2.pdf  | -                                                 |
+| Figure 4         | 04_analysis/appendix_otput.r             | 2384           | match_fig3.pdf  | -                                                 |
+| Table 15         | 04_analysis/appendix_otput.r             | 2550           | -               | `TeX` output is available in `R Studio` console.     |
+| Figure 5         | 04_analysis/appendix_otput.r             | 2705           | bplot.ge.sd.c.pdf | -                                               |
+| Table 16         | 04_analysis/appendix_otput.r             | 2832           | -               | `TeX` output is available in `R Studio` console.      |
+| Figure 6         | 04_analysis/appendix_otput.r             | 2987           | bplot.ge.pd.c.pdf | -                                               |
+| Table 17         | 04_analysis/appendix_otput.r             | 3123           | -               | `TeX` output is available in `R Studio` console.      |
+| Figure 7         | 04_analysis/appendix_otput.r             | 3277           | bplot.ge.sd.s.pdf | -                                               |
+| Table 18         | 04_analysis/appendix_otput.r             | 3397           | -               | `TeX` output is available in `R Studio` console.     |
+| Figure 8         | 04_analysis/appendix_otput.r             | 3551           | bplot.ge.pd.s.pdf | -                                               |
+| Table 19         | 04_analysis/appendix_otput.r             | 3698           | -               | `TeX` output is available in `R Studio` console.      |
+| Figure 9         | 04_analysis/appendix_otput.r             | 3853           | bplot.le.sd.c.pdf | -                                               |
+| Table 20         | 04_analysis/appendix_otput.r             | 3983           | -               | `TeX` output is available in `R Studio` console.      |
+| Figure 10        | 04_analysis/appendix_otput.r             | 4138           | bplot.le.pd.c.pdf | -                                               |
+| Table 21       | 04_analysis/appendix_otput.r             | 4274 | -                 | `TeX` output is available in `R Studio` console.   |
+| Figure 11      | 04_analysis/appendix_otput.r             | 4428 | bplot.le.sd.s.pdf | -                                                  |
+| Table 22       | 04_analysis/appendix_otput.r             | 4548 | -                 | `TeX` output is available in `R Studio` console.   |
+| Figure 12      | 04_analysis/appendix_otput.r             | 4700 | bplot.le.pd.s.pdf | -                                                  |
+| Table 23       | 04_analysis/appendix_otput.r             | 4852 | -                 | `TeX` output is available in `R Studio` console.   |
+| Figure 13      | 04_analysis/appendix_otput.r             | 5007 | bplot.ebe.sd.c.pdf | -                                                  |
+| Table 24       | 04_analysis/appendix_otput.r             | 5131 | -                 | `TeX` output is available in `R Studio` console.   |
+| Figure 14      | 04_analysis/appendix_otput.r             | 5286 | bplot.ebe.pd.c.pdf  | -                                                  |
+| Table 25       | 04_analysis/appendix_otput.r             | 5432 | -                   | `TeX` output is available in `R Studio` console.      |
+| Figure 15      | 04_analysis/appendix_otput.r             | 5586 | bplot.ebe.sd.s.pdf  | -                                                  |
+| Table 26       | 04_analysis/appendix_otput.r             | 5700 | -                   | `TeX` output is available in `R Studio` console.       |
+| Figure 16      | 04_analysis/appendix_otput.r             | 5854 | bplot.ebe.pd.s.pdf  | -                                                  |
+| Table 27       | 04_analysis/appendix_otput.r             | 6095 | -                   | `TeX` output is available in `R Studio` console.       |
+| Table 28       | 04_analysis/appendix_otput.r             | 6299 | -                   | `TeX` output is available in `R Studio` console.       |
+| Table 29       | 04_analysis/appendix_otput.r             | 6526 | -                   | `TeX` output is available in `R Studio` console.      |
+| Table 30       | 04_analysis/appendix_otput.r             | 6730 | -                   | `TeX` output is available in `R Studio` console.       |
+| Table 31       | 04_analysis/appendix_otput.r             | 6956 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 32       | 04_analysis/appendix_otput.r             | 7158 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 33       | 04_analysis/appendix_otput.r             | 7405 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 34       | 04_analysis/appendix_otput.r             | 7621 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 35       | 04_analysis/appendix_otput.r             | 7847 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 36       | 04_analysis/appendix_otput.r             | 8051 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 37       | 04_analysis/appendix_otput.r             | 8290 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 38       | 04_analysis/appendix_otput.r             | 8506 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 39       | 04_analysis/appendix_otput.r             | 8741 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 40       | 04_analysis/appendix_otput.r             | 8945 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 41       | 04_analysis/appendix_otput.r             | 9184 | -         | `TeX` output is available in `R Studio` console.  |
+| Table 42       | 04_analysis/appendix_otput.r             | 9400 | -         | `TeX` output is available in `R Studio` console.   |
+| Table 43     | 04_analysis/appendix_otput.r       | 9627  | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 44     | 04_analysis/appendix_otput.r       | 9830  | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 45     | 04_analysis/appendix_otput.r       | 9914  | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 46     | 04_analysis/appendix_otput.r       | 10001 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 47     | 04_analysis/appendix_otput.r       | 10059 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 48     | 04_analysis/appendix_otput.r       | 10106 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Figure 17    | 04_analysis/appendix_otput.r       | 10140 | rep_fig8.pdf                 | -                                                                        |
+| Figure 18    | 04_analysis/appendix_otput.r       | 10226 | rep_fig9.pdf                 | -                                                                        |
+| Table 49     | 04_analysis/appendix_otput.r       | 10250 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 50     | 04_analysis/appendix_otput.r       | 10261 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 51     | 04_analysis/appendix_otput.r       | 10274 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 52     | 04_analysis/appendix_otput.r       | 10285 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Figure 19    | 04_analysis/appendix_otput.r       | 10327, 10335, 10343, and 10352  | -                                  | Graphs need to be manually saved one by one, using `R Studio` options: `Plot` >> `Export` with `.pdf` as chosen option. Figure was assembled in `Latex`. |
+| Figure 20    | 04_analysis/appendix_otput.r       | 10389, 10397, 10405, and 10414  | -                                  | Graphs need to be manually saved one by one, using `R Studio` options: `Plot` >> `Export` with `.pdf` as chosen option. Figure was assembled in `Latex`. |
+| Table 53     | 04_analysis/appendix_otput.r       | 10423 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 54     | 04_analysis/appendix_otput.r       | 10442 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 55     | 04_analysis/appendix_otput.r       | 10545 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 56     | 04_analysis/appendix_otput.r       | 10644 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Figure 21    | 04_analysis/appendix_otput.r       | 10695 and 10750                | uk_scip_2.pdf and nl_scip_2.pdf     | Figure was assembled in `LaTeX`.                                          |
+| Table 57     | 04_analysis/appendix_otput.r       | 10895 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Table 58     | 04_analysis/appendix_otput.r       | 11028 | -                            | `TeX` output is available in `R Studio` console.                         |
+| Figure 22    | 04_analysis/appendix_otput.r       | 11085, 11149, 11211, and 11275 | uk_scip_4.pdf, uk_scip_5.pdf, nl_scip_4.pdf, and nl_scip_5.pdf | Figure was assembled in `LaTeX`.                                          |
+
+## References {#references}
+
+> Diehl, Claudia, Mérove Gijsberts, Ayse Güveli, Matthias Koenig, Cornelia Kristen, Marcel Lubbers, Frances McGinnity, Peter Mühlau, Lucinda Platt, and Frank Van Tubergen. 2016. "Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP)." GESIS Data Archive, Cologne. ZA5956 Data file Version 1.0.0. DOI: [https://doi.org/10.4232/1.12341](https://doi.org/10.4232/1.12341).
+
+> Fisher, Stephen, Anthony Heath, David Sanders, and Maria Sobolewska. 2012. "British Election Study Ethnic Minority Survey, 2010." UK Data Service. SN: 6970. DOI: [http://doi.org/10.5255/UKDA-SN-6970-1](http://doi.org/10.5255/UKDA-SN-6970-1).
+
+> Oskooii, Kassra A. R. 2020. “Perceived Discrimination and Political Behavior”. British Journal of Political Science 50 (3): 867–892.
+
+---
+
+## Acknowledgements {#acknowledgements}
+
+The code to reproduce tables and graphs from Oskooii 2020 is available in the [Harvard Dataverse Repository](https://dataverse.harvard.edu/dataset.xhtml;jsessionid=6980c45ecda031790e932ecac202?persistentId=doi%3A10.7910%2FDVN%2F4S2NIW&version=&q=&fileAccess=%22Public%22&fileTag=&fileSortField=&fileSortOrder=) of the paper and contains the `Disc&PolBehav_ReplicationCode.R` script and already prepared `EMBES_BJPS_DATA.dta` file. Scripts for data pre-processing used in the original paper were provided by the author, Kassra A. R. Oskooii on request. I am grateful to Kassra A. R. Oskooii for support and encouragement during the work on this replication.
+
