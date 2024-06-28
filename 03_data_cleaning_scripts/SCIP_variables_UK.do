@@ -8,10 +8,12 @@
 
 *** READ IN THE ORIGINAL SCIP DATASET (UK data, wave 1)
 
-** WINDOWS FILEPATH cd "C:\Users\Andrej Cvetic\Desktop\PhD\2023_TT_Replication Paper\1_Datasets for Replication\01_Working Datasets"
 
-pwd
-use "ZA5956_uk_wave1_v1-0-0", clear
+**cd "C:\Users\Andrej Cvetic\Desktop\PhD\2023_TT_Replication Paper\1_Datasets for Replication\01_Working Datasets"
+**use "ZA5956_uk_wave1_v1-0-0", clear
+
+** Follow the instructions from README file to access the data from GESIS. 
+** Download the data to the folder of your choce.
 
 numlabel, add force
 

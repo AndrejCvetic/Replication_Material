@@ -15,6 +15,7 @@
 
 ** Download the data from the following link and set the working directory:
 * https://github.com/AndrejCvetic/Replication_Material/blob/main/01_original_datasets/british_election_study_ethnic_minority_survey_2010_data_anon.dta
+** Read in the data in the folder of your choce. 
 
 
 numlabel, add force
