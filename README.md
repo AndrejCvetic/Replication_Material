@@ -258,17 +258,17 @@ The provided code reproduces:
 | Table 58     | 04_analysis/appendix_otput.r       | 11028 | -                            | `TeX` output is available in `R Studio` console.                         |
 | Figure 22    | 04_analysis/appendix_otput.r       | 11085, 11149, 11211, and 11275 | uk_scip_4.pdf, uk_scip_5.pdf, nl_scip_4.pdf, and nl_scip_5.pdf | Figure was assembled in `LaTeX`.                                          |
 
-## References {#references}
+## References
 
-> Diehl, Claudia, Mérove Gijsberts, Ayse Güveli, Matthias Koenig, Cornelia Kristen, Marcel Lubbers, Frances McGinnity, Peter Mühlau, Lucinda Platt, and Frank Van Tubergen. 2016. "Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP)." GESIS Data Archive, Cologne. ZA5956 Data file Version 1.0.0. DOI: [https://doi.org/10.4232/1.12341](https://doi.org/10.4232/1.12341).
+Diehl, Claudia, Mérove Gijsberts, Ayse Güveli, Matthias Koenig, Cornelia Kristen, Marcel Lubbers, Frances McGinnity, Peter Mühlau, Lucinda Platt, and Frank Van Tubergen. 2016. "Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP)." GESIS Data Archive, Cologne. ZA5956 Data file Version 1.0.0. DOI: [https://doi.org/10.4232/1.12341](https://doi.org/10.4232/1.12341).
 
-> Fisher, Stephen, Anthony Heath, David Sanders, and Maria Sobolewska. 2012. "British Election Study Ethnic Minority Survey, 2010." UK Data Service. SN: 6970. DOI: [http://doi.org/10.5255/UKDA-SN-6970-1](http://doi.org/10.5255/UKDA-SN-6970-1).
+Fisher, Stephen, Anthony Heath, David Sanders, and Maria Sobolewska. 2012. "British Election Study Ethnic Minority Survey, 2010." UK Data Service. SN: 6970. DOI: [http://doi.org/10.5255/UKDA-SN-6970-1](http://doi.org/10.5255/UKDA-SN-6970-1).
 
-> Oskooii, Kassra A. R. 2020. “Perceived Discrimination and Political Behavior”. British Journal of Political Science 50 (3): 867–892.
+Oskooii, Kassra A. R. 2020. “Perceived Discrimination and Political Behavior”. British Journal of Political Science 50 (3): 867–892.
 
 ---
 
-## Acknowledgements {#acknowledgements}
+## Acknowledgements
 
 The code to reproduce tables and graphs from Oskooii 2020 is available in the [Harvard Dataverse Repository](https://dataverse.harvard.edu/dataset.xhtml;jsessionid=6980c45ecda031790e932ecac202?persistentId=doi%3A10.7910%2FDVN%2F4S2NIW&version=&q=&fileAccess=%22Public%22&fileTag=&fileSortField=&fileSortOrder=) of the paper and contains the `Disc&PolBehav_ReplicationCode.R` script and already prepared `EMBES_BJPS_DATA.dta` file. Scripts for data pre-processing used in the original paper were provided by the author, Kassra A. R. Oskooii on request. I am grateful to Kassra A. R. Oskooii for support and encouragement during the work on this replication.
 
