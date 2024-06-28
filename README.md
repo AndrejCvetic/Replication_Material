@@ -24,3 +24,25 @@ This replication package contains data and code to replicate the analysis from *
 - [x] All data **are** publicly available.
 - [ ] Some data **cannot be made** publicly available.
 - [ ] **No data can be made** publicly available.
+
+### Details on each Data Source
+
+| Data Name | Data Files                                                       | Location                        | Provided | Citation         |
+|-----------|------------------------------------------------------------------|---------------------------------|----------|------------------|
+| British Election Study Ethnic Minority Survey                        | [british\_election\_study\_ethnic\_minority\_survey\_2010\_data\_anon](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6970#!/access-data) | [01\_original\_datasets](https://github.com/AndrejCvetic/Replication_Material/tree/main/01_original_datasets) | TRUE     | Fisher et al. 2012 |
+| Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP) | ZA5956\_uk\_wave1\_v1-0-0.dta; ZA5956\_nl\_wave1\_v1-0-0.dta          | [https://search.gesis.org/research_data/ZA5956](https://search.gesis.org/research_data/ZA5956) | FALSE    | Diehl et al. 2016 |
+
+### British Election Study Ethnic Minority Survey
+
+The **British Election Study Ethnic Minority Survey** data was downloaded from the UK Data Service (Fisher et al. 2012). Data are available to be downloaded from the [following link](https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=6970#!/access-data). The chosen file format was `.dta` (4.62MB). A copy of the data is provided as part of the replication package in folder [01_original_datasets](https://github.com/AndrejCvetic/Replication_Material/tree/main/01_original_datasets).
+
+**Datafile**: `british_election_study_ethnic_minority_survey_2010_data_anon`
+
+### Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP)
+
+The **Causes and Consequences of Socio-Cultural Integration Processes among New Immigrants in Europe (SCIP)** (Diehl et al. 2016) data was downloaded from the [following link](https://search.gesis.org/research_data/ZA5956). In the section Downloads, under Datasets, the chosen file format is Stata `.zip` archive (`ZA5956_v1-0-0.dta.zip Stata (Dataset)`). The entire archive has 3.19 MB. Out of the downloaded data, the following files were used: `ZA5956_uk_wave1_v1-0-0.dta` & `ZA5956_nl_wave1_v1-0-0.dta` in this research. Data are not provided in this repository but can be downloaded freely after registering with GESIS.
+
+**Datafile**: `ZA5956_uk_wave1_v1-0-0.dta` (not provided)
+
+**Datafile**: `ZA5956_nl_wave1_v1-0-0.dta` (not provided)
+
