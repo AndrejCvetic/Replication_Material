@@ -1,4 +1,4 @@
-For all instructions, please check README.pdf in the repository.
+All instructions are also available in README.pdf in the repository.
 
 ## Overview
 
