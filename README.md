@@ -1,4 +1,3 @@
-<a href="Replication_Material/README.pdf" class="image fit"><img src="Replication_Material/README.jpg" alt=""></a>
 
 Same set of instructions is also available in README.pdf in the repository.
 
